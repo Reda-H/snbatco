@@ -1,6 +1,7 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { Box } from "@chakra-ui/layout";
 import "reset-css";
+import PageLayout from "../components/PageLayout";
 
 const theme = extendTheme({
   colors: {
@@ -35,9 +36,9 @@ const theme = extendTheme({
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
-      <Box p={"50px"} bg={"black"} color={"white"}>
+      <PageLayout>
         <Component {...pageProps} />
-      </Box>
+      </PageLayout>
     </ChakraProvider>
   );
 }
