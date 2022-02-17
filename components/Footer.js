@@ -30,7 +30,7 @@ function Footer() {
         <PopoverArrow />
         <PopoverCloseButton />
         <PopoverBody>
-          <Center>
+          <Center p={"3"}>
             <Text fontSize={"18px"} my={"2"}>
               <Flex direction={"row"}>
                 <AiFillPhone />
