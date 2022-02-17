@@ -28,7 +28,7 @@ function Home() {
         <Box w={"10%"} bg={"black"} height={"500px"} color={"white"}>
           <List spacing={3}>
             {sidebarItem.map((item) => (
-              <ListItem>
+              <ListItem key={() => Math.random()}>
                 <ListIcon as={IoIosArrowForward} color="white" />
                 {item.title}
               </ListItem>
