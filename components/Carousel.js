@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   IconButton,
@@ -29,7 +29,7 @@ const settings = {
 export default function CaptionCarousel() {
   // As we have used custom buttons, we need a reference variable to
   // change the state
-  const [slider, setSlider] = React.useState(null);
+  const [slider, setSlider] = useState(null);
 
   // These are the breakpoints which changes the position of the
   // buttons as the screen size changes
@@ -83,8 +83,8 @@ export default function CaptionCarousel() {
         aria-label="left-arrow"
         variant="ghost"
         position="absolute"
-        left={side}
-        top={top}
+        left={side ? side : "30%"}
+        top={top ? top : "90%"}
         transform={"translate(0%, -50%)"}
         zIndex={2}
         onClick={() => slider?.slickPrev()}
@@ -96,8 +96,8 @@ export default function CaptionCarousel() {
         aria-label="right-arrow"
         variant="ghost"
         position="absolute"
-        right={side}
-        top={top}
+        right={side ? side : "30%"}
+        top={top ? top : "90%"}
         transform={"translate(0%, -50%)"}
         zIndex={2}
         onClick={() => slider?.slickNext()}
