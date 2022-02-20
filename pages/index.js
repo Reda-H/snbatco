@@ -98,7 +98,7 @@ function Home() {
         <Center>
           <Accordion defaultIndex={[0, 1]} allowMultiple w={"80%"}>
             {data.map((item, index) => (
-              <AccordionComponent id={0} title={item.title}>
+              <AccordionComponent id={0} title={item.title} key={index}>
                 <Box w={"100%"} p={4}>
                   <SimpleGrid
                     rows={{ sm: 3, md: 2 }}
@@ -115,7 +115,7 @@ function Home() {
                     {skeletonProjects[index].map((project) => {
                       if (project.length !== 0) {
                         return (
-                          <Skeleton m={1}>
+                          <Skeleton m={1} key={() => Math.random()}>
                             <Box key={() => Math.random()}>
                               <ProjectCard imageLink={null} type={"old"} />
                             </Box>
