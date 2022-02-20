@@ -1,59 +1,24 @@
 import {
   Flex,
-  Circle,
   Box,
   Image,
-  Badge,
   useColorModeValue,
-  Icon,
-  chakra,
-  Tooltip,
   Text,
+  Fade,
+  Heading,
 } from "@chakra-ui/react";
-import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
-import { FiShoppingCart } from "react-icons/fi";
+import { useState } from "react";
 
-const data = {
-  isNew: true,
-  imageURL:
-    "https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=4600&q=80",
-  name: "Wayfarer Classic",
-  price: 4.5,
-  rating: 4.2,
-  numReviews: 34,
-};
-
-function Rating({ rating, numReviews }) {
+function ProjectCard({ imageLink }) {
+  let [toggle, setToggle] = useState(false);
   return (
-    <Box d="flex" alignItems="center">
-      {Array(5)
-        .fill("")
-        .map((_, i) => {
-          const roundedRating = Math.round(rating * 2) / 2;
-          if (roundedRating - i >= 1) {
-            return (
-              <BsStarFill
-                key={i}
-                style={{ marginLeft: "1" }}
-                color={i < rating ? "teal.500" : "gray.300"}
-              />
-            );
-          }
-          if (roundedRating - i === 0.5) {
-            return <BsStarHalf key={i} style={{ marginLeft: "1" }} />;
-          }
-          return <BsStar key={i} style={{ marginLeft: "1" }} />;
-        })}
-      <Box as="span" ml="2" color="gray.600" fontSize="sm">
-        {numReviews} review{numReviews > 1 && "s"}
-      </Box>
-    </Box>
-  );
-}
-
-function ProjectCard() {
-  return (
-    <Flex p={10} w="full" alignItems="center" justifyContent="center">
+    <Flex
+      marginX={0}
+      marginY={{ base: 3, md: 0 }}
+      w="full"
+      alignItems="center"
+      justifyContent="center"
+    >
       <Box
         bg={useColorModeValue("white", "gray.800")}
         maxW="sm"
@@ -61,66 +26,60 @@ function ProjectCard() {
         rounded="lg"
         shadow="lg"
         position="relative"
+        onMouseEnter={() => setToggle(true)}
+        onMouseLeave={() => setToggle(false)}
       >
-        {data.isNew && (
-          <Text
-            position="absolute"
-            top={2}
-            right={2}
-            color="red.200"
-            fontWeight={"bold"}
+        <Text
+          position="absolute"
+          top={2}
+          right={2}
+          color="red.200"
+          fontWeight={"bold"}
+        >
+          {"Récent".toUpperCase()}
+        </Text>
+        <Fade in={toggle}>
+          <Box
+            background={"rgba(0,0,0,0.5)"}
+            zIndex={2}
+            position={"absolute"}
+            top={0}
+            right={0}
+            height={"100%"}
+            width={"100%"}
+            display={"block"}
+            p={5}
+            maxW={"100%"}
           >
-            {"Récent".toUpperCase()}
-          </Text>
-        )}
-
-        <Image
-          src={data.imageURL}
-          alt={`Picture of ${data.name}`}
-          rounded="lg"
-        />
-
-        {/* <Box p="6">
-          <Box d="flex" alignItems="baseline">
-            {data.isNew && (
-              <Badge rounded="full" px="2" fontSize="0.8em" colorScheme="red">
-                New
-              </Badge>
-            )}
+            <Flex
+              h={"100%"}
+              direction={"column"}
+              justifyContent={"flex-end"}
+              alignItems={"flex-start"}
+            >
+              <Heading color={"white"} mb={2}>
+                Project Batiment
+              </Heading>
+              <Text
+                color="gray.500"
+                w={"100%"}
+                maxW={"100%"}
+                noOfLines={2}
+                mb={12}
+              >
+                Lorem ipsum is placeholder text commonly used in the graphic,
+                print, and publishing industries for previewing layouts and
+                visual mockups.
+              </Text>
+            </Flex>
           </Box>
-          <Flex mt="1" justifyContent="space-between" alignContent="center">
-            <Box
-              fontSize="2xl"
-              fontWeight="semibold"
-              as="h4"
-              lineHeight="tight"
-              isTruncated
-            >
-              {data.name}
-            </Box>
-            <Tooltip
-              label="Add to cart"
-              bg="white"
-              placement={"top"}
-              color={"gray.800"}
-              fontSize={"1.2em"}
-            >
-              <chakra.a href={"#"} display={"flex"}>
-                <Icon as={FiShoppingCart} h={7} w={7} alignSelf={"center"} />
-              </chakra.a>
-            </Tooltip>
-          </Flex>
-
-          <Flex justifyContent="space-between" alignContent="center">
-            <Rating rating={data.rating} numReviews={data.numReviews} />
-            <Box fontSize="2xl" color={useColorModeValue("gray.800", "white")}>
-              <Box as="span" color={"gray.600"} fontSize="lg">
-                £
-              </Box>
-              {data.price.toFixed(2)}
-            </Box>
-          </Flex>
-        </Box> */}
+        </Fade>
+        <Image
+          src={imageLink}
+          alt={`Picture of building`}
+          rounded="lg"
+          zIndex={1}
+        />
       </Box>
     </Flex>
   );

@@ -14,6 +14,7 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
+  Heading,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -53,13 +54,15 @@ export default function Navbar() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Text
+          <Heading
+            size={"2xl"}
+            my={"auto"}
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
           >
             SNBAT
-          </Text>
+          </Heading>
         </Flex>
 
         <Stack flex={{ base: 1, md: 1 }} justify={"flex-end"} direction={"row"}>
