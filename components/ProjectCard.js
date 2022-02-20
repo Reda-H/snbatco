@@ -9,21 +9,22 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 
-function ProjectCard({ imageLink }) {
+function ProjectCard({ imageLink, type }) {
   let [toggle, setToggle] = useState(false);
   return (
     <Flex
       marginX={0}
       marginY={{ base: 3, md: 0 }}
       w="full"
+      h={"full"}
       alignItems="center"
       justifyContent="center"
+      p={1}
     >
       <Box
         bg={useColorModeValue("white", "gray.800")}
         maxW="sm"
         borderWidth="1px"
-        rounded="lg"
         shadow="lg"
         position="relative"
         onMouseEnter={() => setToggle(true)}
@@ -36,7 +37,7 @@ function ProjectCard({ imageLink }) {
           color="red.200"
           fontWeight={"bold"}
         >
-          {"Récent".toUpperCase()}
+          {type === "new" ? "Récent".toUpperCase() : null}
         </Text>
         <Fade in={toggle}>
           <Box
@@ -74,12 +75,7 @@ function ProjectCard({ imageLink }) {
             </Flex>
           </Box>
         </Fade>
-        <Image
-          src={imageLink}
-          alt={`Picture of building`}
-          rounded="lg"
-          zIndex={1}
-        />
+        <Image src={imageLink} alt={`Picture of building`} zIndex={1} />
       </Box>
     </Flex>
   );
