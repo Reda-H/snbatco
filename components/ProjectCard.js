@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 
-function ProjectCard({ imageLink, type }) {
+function ProjectCard({ imageLink, type, title, paragraph }) {
   let [toggle, setToggle] = useState(false);
   return (
     <Flex
@@ -59,7 +59,7 @@ function ProjectCard({ imageLink, type }) {
               alignItems={"flex-start"}
             >
               <Heading color={"white"} mb={2}>
-                Project Batiment
+                {title}
               </Heading>
               <Text
                 color="gray.500"
@@ -68,9 +68,7 @@ function ProjectCard({ imageLink, type }) {
                 noOfLines={2}
                 mb={12}
               >
-                Lorem ipsum is placeholder text commonly used in the graphic,
-                print, and publishing industries for previewing layouts and
-                visual mockups.
+                {paragraph}
               </Text>
             </Flex>
           </Box>
