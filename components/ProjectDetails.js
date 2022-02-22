@@ -5,7 +5,6 @@ import {
   Container,
   Stack,
   Text,
-  Image,
   Flex,
   VStack,
   Button,
@@ -21,41 +20,46 @@ import {
   HStack,
   Divider,
   Icon,
+  Image,
 } from "@chakra-ui/react";
+import NextImage from "next/image";
 import { BiCalendar } from "react-icons/bi";
 import { BsCheck2Circle } from "react-icons/bs";
 import { FiDollarSign } from "react-icons/fi";
 
 let photoData = [
   {
-    url: "https://www.realconstructions.lu/wp-content/uploads/sites/81/2014/08/realconstructions-construction02.jpg",
+    url: "https://images.pexels.com/photos/1463917/pexels-photo-1463917.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   },
   {
-    url: "https://www.constructionbusinessowner.com/sites/default/files/styles/thumb/public/2022-02/Guigli-Case-Study-Tenna_article-header-980x400.jpg?itok=rRw1bz-m",
+    url: "https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   },
   {
-    url: "https://www.stihl.co.uk/p/images/header_490x170/uk-en/J5013-490wx358h-construction-banner_rdax_65.jpg",
+    url: "https://images.pexels.com/photos/176342/pexels-photo-176342.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   },
   {
-    url: "https://thumbs.dreamstime.com/b/construction-site-showing-machinery-backhoe-foundation-masons-construction-work-construction-equipment-construction-products-real-115604524.jpg",
+    url: "https://images.pexels.com/photos/1188532/pexels-photo-1188532.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   },
   {
-    url: "https://thumbs.dreamstime.com/b/construction-site-showing-machinery-backhoe-foundation-masons-construction-work-construction-equipment-construction-products-real-115604487.jpg",
+    url: "https://images.pexels.com/photos/190417/pexels-photo-190417.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   },
   {
-    url: "https://img.freepik.com/photos-gratuite/directeur-construction-ingenieur-papier-plans-casque-protection-portee-main-chantier_293060-8690.jpg?size=626&ext=jpg",
+    url: "https://images.pexels.com/photos/69483/pexels-photo-69483.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   },
   {
-    url: "https://www.realmadrid.com/img/horizontal_940px/_1vc2021_h_20200810084054.jpg",
+    url: "https://images.pexels.com/photos/2323080/pexels-photo-2323080.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   },
   {
-    url: "https://yellowprod.s3-eu-west-1.amazonaws.com/uploads/gallery_picture/picture/27589/Realconstruction_1.JPG",
+    url: "https://images.pexels.com/photos/7931/pexels-photo-7931.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   },
   {
-    url: "https://www.realconstructions.lu/wp-content/uploads/sites/81/2014/08/realconstructions-construction02.jpg",
+    url: "https://images.pexels.com/photos/585418/pexels-photo-585418.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   },
   {
-    url: "https://enfinrentable.fr/wp-content/uploads/building-home-crash-disaster-demolition-earthquake-1152509-pxhere.com_.jpg",
+    url: "https://images.pexels.com/photos/2469/building-construction-building-site-constructing.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  },
+  {
+    url: "https://images.pexels.com/photos/2209529/pexels-photo-2209529.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   },
 ];
 
@@ -73,7 +77,8 @@ const ProjectDetails = ({ project }) => {
               }
               fit={"cover"}
               align={"center"}
-              h={"100%"}
+              height={"100%"}
+              width={"100%"}
             />
           </Flex>
         </GridItem>
@@ -173,14 +178,20 @@ const ProjectDetails = ({ project }) => {
           </Stack>
         </GridItem>
       </Grid>
-
-      <SimpleGrid columns={4}>
-        {photoData.map((photo) => (
-          <Box>
-            <Image src={photo.url} />
-          </Box>
-        ))}
-      </SimpleGrid>
+      <Box>
+        <SimpleGrid columns={4}>
+          {photoData.map((photo) => (
+            <Box key={photo.url} w={"100%"} p={"10px"}>
+              <NextImage
+                src={`${photo.url}`}
+                width={"100%"}
+                height={"100%"}
+                layout={"responsive"}
+              />
+            </Box>
+          ))}
+        </SimpleGrid>
+      </Box>
     </Container>
   );
 };
