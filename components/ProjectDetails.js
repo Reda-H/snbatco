@@ -26,10 +26,43 @@ import { BiCalendar } from "react-icons/bi";
 import { BsCheck2Circle } from "react-icons/bs";
 import { FiDollarSign } from "react-icons/fi";
 
+let photoData = [
+  {
+    url: "https://www.realconstructions.lu/wp-content/uploads/sites/81/2014/08/realconstructions-construction02.jpg",
+  },
+  {
+    url: "https://www.constructionbusinessowner.com/sites/default/files/styles/thumb/public/2022-02/Guigli-Case-Study-Tenna_article-header-980x400.jpg?itok=rRw1bz-m",
+  },
+  {
+    url: "https://www.stihl.co.uk/p/images/header_490x170/uk-en/J5013-490wx358h-construction-banner_rdax_65.jpg",
+  },
+  {
+    url: "https://thumbs.dreamstime.com/b/construction-site-showing-machinery-backhoe-foundation-masons-construction-work-construction-equipment-construction-products-real-115604524.jpg",
+  },
+  {
+    url: "https://thumbs.dreamstime.com/b/construction-site-showing-machinery-backhoe-foundation-masons-construction-work-construction-equipment-construction-products-real-115604487.jpg",
+  },
+  {
+    url: "https://img.freepik.com/photos-gratuite/directeur-construction-ingenieur-papier-plans-casque-protection-portee-main-chantier_293060-8690.jpg?size=626&ext=jpg",
+  },
+  {
+    url: "https://www.realmadrid.com/img/horizontal_940px/_1vc2021_h_20200810084054.jpg",
+  },
+  {
+    url: "https://yellowprod.s3-eu-west-1.amazonaws.com/uploads/gallery_picture/picture/27589/Realconstruction_1.JPG",
+  },
+  {
+    url: "https://www.realconstructions.lu/wp-content/uploads/sites/81/2014/08/realconstructions-construction02.jpg",
+  },
+  {
+    url: "https://enfinrentable.fr/wp-content/uploads/building-home-crash-disaster-demolition-earthquake-1152509-pxhere.com_.jpg",
+  },
+];
+
 const ProjectDetails = ({ project }) => {
   return (
     <Container maxW={"6xl"}>
-      <Grid templateRows={"repeat(2, 1fr)"} templateColumns={"repeat(5, 1fr)"}>
+      <Grid templateRows={"repeat(1, 1fr)"} templateColumns={"repeat(5, 1fr)"}>
         <GridItem colSpan={[5, 2]}>
           <Flex height={"100%"}>
             <Image
@@ -46,9 +79,12 @@ const ProjectDetails = ({ project }) => {
         </GridItem>
         <GridItem colSpan={[5, 3]}>
           <Stack spacing={1}>
-            <Box as={"header"} px={[0, 6]} borderBottom={"1px solid gray"}>
+            <Box as={"header"} px={[0, 6]}>
               <Heading fontSize={"2xl"}>{project.title}</Heading>
-              <Stack direction={["column", "row"]}>
+              <Stack
+                direction={["column", "row"]}
+                borderBottom={"1px solid gray"}
+              >
                 <Text>Ea Lorem non amet eiusmod commodo anim.</Text>
                 <Text>Ea Lorem non</Text>
                 <Text>2006</Text>
@@ -65,11 +101,19 @@ const ProjectDetails = ({ project }) => {
               </Text>
               <Grid
                 my={5}
-                templateRows={"repeat(1, 1fr)"}
+                templateRows={["repeat(3, 1fr)", "repeat(1, 1fr)"]}
                 templateColumns={"repeat(3, 1fr)"}
               >
-                <GridItem colSpan={[3, 1]}>
-                  <Center justifyContent={["start", "center"]}>
+                <GridItem
+                  colSpan={[3, 1]}
+                  borderRight={["none", "1px solid black"]}
+                >
+                  <Center
+                    justifyContent={["center"]}
+                    borderBottom={["1px solid black", "none"]}
+                    paddingY={["2", "0"]}
+                    height={"100%"}
+                  >
                     <Box>
                       <Flex direction={"row"} lineHeight={1}>
                         <FiDollarSign />
@@ -78,11 +122,18 @@ const ProjectDetails = ({ project }) => {
                     </Box>
                   </Center>
                 </GridItem>
-
-                <GridItem colSpan={[3, 1]}>
-                  <Center justifyContent={["start", "center"]}>
+                <GridItem
+                  colSpan={[3, 1]}
+                  borderRight={["none", "1px solid black"]}
+                >
+                  <Center
+                    justifyContent={["center"]}
+                    borderBottom={["1px solid black", "none"]}
+                    paddingY={["2", "0"]}
+                    height={"100%"}
+                  >
                     <Box>
-                      <VStack>
+                      <HStack>
                         <Flex direction={"row"} lineHeight={1}>
                           <BsCheck2Circle color="green" />
                           <Text fontSize={"2xl"}>LEED</Text>
@@ -92,13 +143,16 @@ const ProjectDetails = ({ project }) => {
                           <BsCheck2Circle color="green" />
                           <Text fontSize={"2xl"}>AAC</Text>
                         </Flex>
-                      </VStack>
+                      </HStack>
                     </Box>
                   </Center>
                 </GridItem>
-
                 <GridItem colSpan={[3, 1]}>
-                  <Center justifyContent={["start", "center"]}>
+                  <Center
+                    justifyContent={["center"]}
+                    paddingY={["2", "0"]}
+                    height={"100%"}
+                  >
                     <Box>
                       <Flex direction={"row"} lineHeight={1}>
                         <Text fontSize={"2xl"} textAlign={"center"}>
@@ -117,282 +171,16 @@ const ProjectDetails = ({ project }) => {
               </Grid>
             </Box>
           </Stack>
-          {/* <Stack spacing={{ base: 6, md: 10 }}>
-            <Box as={"header"}>
-              <Heading
-                lineHeight={1.1}
-                fontWeight={600}
-                fontSize={{ base: "2xl", sm: "4xl", lg: "5xl" }}
-              >
-                Automatic Watch
-              </Heading>
-              <Text
-                color={useColorModeValue("gray.900", "gray.400")}
-                fontWeight={300}
-                fontSize={"2xl"}
-              >
-                $350.00 USD
-              </Text>
-            </Box>
-            <Stack
-              spacing={{ base: 4, sm: 6 }}
-              direction={"column"}
-              divider={
-                <StackDivider
-                  borderColor={useColorModeValue("gray.200", "gray.600")}
-                />
-              }
-            >
-              <VStack spacing={{ base: 4, sm: 6 }}>
-                <Text
-                  color={useColorModeValue("gray.500", "gray.400")}
-                  fontSize={"2xl"}
-                  fontWeight={"300"}
-                >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore
-                </Text>
-                <Text fontSize={"lg"}>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-                  aliquid amet at delectus doloribus dolorum expedita hic, ipsum
-                  maxime modi nam officiis porro, quae, quisquam quos
-                  reprehenderit velit? Natus, totam.
-                </Text>
-              </VStack>
-              <Box>
-                <Text
-                  fontSize={{ base: "16px", lg: "18px" }}
-                  color={useColorModeValue("yellow.500", "yellow.300")}
-                  fontWeight={"500"}
-                  textTransform={"uppercase"}
-                  mb={"4"}
-                >
-                  Features
-                </Text>
-
-                <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-                  <List spacing={2}>
-                    <ListItem>Chronograph</ListItem>
-                    <ListItem>Master Chronometer Certified</ListItem>{" "}
-                    <ListItem>Tachymeter</ListItem>
-                  </List>
-                  <List spacing={2}>
-                    <ListItem>Anti‑magnetic</ListItem>
-                    <ListItem>Chronometer</ListItem>
-                    <ListItem>Small seconds</ListItem>
-                  </List>
-                </SimpleGrid>
-              </Box>
-              <Box>
-                <Text
-                  fontSize={{ base: "16px", lg: "18px" }}
-                  color={useColorModeValue("yellow.500", "yellow.300")}
-                  fontWeight={"500"}
-                  textTransform={"uppercase"}
-                  mb={"4"}
-                >
-                  Product Details
-                </Text>
-
-                <List spacing={2}>
-                  <ListItem>
-                    <Text as={"span"} fontWeight={"bold"}>
-                      Between lugs:
-                    </Text>{" "}
-                    20 mm
-                  </ListItem>
-                  <ListItem>
-                    <Text as={"span"} fontWeight={"bold"}>
-                      Bracelet:
-                    </Text>{" "}
-                    leather strap
-                  </ListItem>
-                  <ListItem>
-                    <Text as={"span"} fontWeight={"bold"}>
-                      Case:
-                    </Text>{" "}
-                    Steel
-                  </ListItem>
-                  <ListItem>
-                    <Text as={"span"} fontWeight={"bold"}>
-                      Case diameter:
-                    </Text>{" "}
-                    42 mm
-                  </ListItem>
-                  <ListItem>
-                    <Text as={"span"} fontWeight={"bold"}>
-                      Dial color:
-                    </Text>{" "}
-                    Black
-                  </ListItem>
-                  <ListItem>
-                    <Text as={"span"} fontWeight={"bold"}>
-                      Crystal:
-                    </Text>{" "}
-                    Domed, scratch‑resistant sapphire crystal with
-                    anti‑reflective treatment inside
-                  </ListItem>
-                  <ListItem>
-                    <Text as={"span"} fontWeight={"bold"}>
-                      Water resistance:
-                    </Text>{" "}
-                    5 bar (50 metres / 167 feet){" "}
-                  </ListItem>
-                </List>
-              </Box>
-            </Stack>
-          </Stack> */}
         </GridItem>
-
-        {/* <Stack spacing={{ base: 6, md: 10 }}>
-          <Box as={"header"}>
-            <Heading
-              lineHeight={1.1}
-              fontWeight={600}
-              fontSize={{ base: "2xl", sm: "4xl", lg: "5xl" }}
-            >
-              Automatic Watch
-            </Heading>
-            <Text
-              color={useColorModeValue("gray.900", "gray.400")}
-              fontWeight={300}
-              fontSize={"2xl"}
-            >
-              $350.00 USD
-            </Text>
-          </Box> */}
-
-        {/* <Stack
-            spacing={{ base: 4, sm: 6 }}
-            direction={"column"}
-            divider={
-              <StackDivider
-                borderColor={useColorModeValue("gray.200", "gray.600")}
-              />
-            }
-          >
-            <VStack spacing={{ base: 4, sm: 6 }}>
-              <Text
-                color={useColorModeValue("gray.500", "gray.400")}
-                fontSize={"2xl"}
-                fontWeight={"300"}
-              >
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                diam nonumy eirmod tempor invidunt ut labore
-              </Text>
-              <Text fontSize={"lg"}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-                aliquid amet at delectus doloribus dolorum expedita hic, ipsum
-                maxime modi nam officiis porro, quae, quisquam quos
-                reprehenderit velit? Natus, totam.
-              </Text>
-            </VStack>
-            <Box>
-              <Text
-                fontSize={{ base: "16px", lg: "18px" }}
-                color={useColorModeValue("yellow.500", "yellow.300")}
-                fontWeight={"500"}
-                textTransform={"uppercase"}
-                mb={"4"}
-              >
-                Features
-              </Text>
-
-              <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-                <List spacing={2}>
-                  <ListItem>Chronograph</ListItem>
-                  <ListItem>Master Chronometer Certified</ListItem>{" "}
-                  <ListItem>Tachymeter</ListItem>
-                </List>
-                <List spacing={2}>
-                  <ListItem>Anti‑magnetic</ListItem>
-                  <ListItem>Chronometer</ListItem>
-                  <ListItem>Small seconds</ListItem>
-                </List>
-              </SimpleGrid>
-            </Box>
-            <Box>
-              <Text
-                fontSize={{ base: "16px", lg: "18px" }}
-                color={useColorModeValue("yellow.500", "yellow.300")}
-                fontWeight={"500"}
-                textTransform={"uppercase"}
-                mb={"4"}
-              >
-                Product Details
-              </Text>
-
-              <List spacing={2}>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Between lugs:
-                  </Text>{" "}
-                  20 mm
-                </ListItem>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Bracelet:
-                  </Text>{" "}
-                  leather strap
-                </ListItem>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Case:
-                  </Text>{" "}
-                  Steel
-                </ListItem>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Case diameter:
-                  </Text>{" "}
-                  42 mm
-                </ListItem>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Dial color:
-                  </Text>{" "}
-                  Black
-                </ListItem>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Crystal:
-                  </Text>{" "}
-                  Domed, scratch‑resistant sapphire crystal with anti‑reflective
-                  treatment inside
-                </ListItem>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Water resistance:
-                  </Text>{" "}
-                  5 bar (50 metres / 167 feet){" "}
-                </ListItem>
-              </List>
-            </Box>
-          </Stack> */}
-
-        {/* <Button
-            rounded={"none"}
-            w={"full"}
-            mt={8}
-            size={"lg"}
-            py={"7"}
-            bg={useColorModeValue("gray.900", "gray.50")}
-            color={useColorModeValue("white", "gray.900")}
-            textTransform={"uppercase"}
-            _hover={{
-              transform: "translateY(2px)",
-              boxShadow: "lg",
-            }}
-          >
-            Add to cart
-          </Button>
-
-          <Stack direction="row" alignItems="center" justifyContent={"center"}>
-            <MdLocalShipping />
-            <Text>2-3 business days delivery</Text>
-          </Stack>
-        </Stack> */}
       </Grid>
+
+      <SimpleGrid columns={4}>
+        {photoData.map((photo) => (
+          <Box>
+            <Image src={photo.url} />
+          </Box>
+        ))}
+      </SimpleGrid>
     </Container>
   );
 };
