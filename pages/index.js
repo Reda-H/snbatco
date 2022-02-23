@@ -110,10 +110,6 @@ for (let i = 0; i < data.length; i++) {
   }
 }
 
-const Overlay = () => (
-  <ModalOverlay bg="blackAlpha.300" backdropFilter={"blur(10px)"} />
-);
-
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   let [selected, setSelected] = useState({});
@@ -171,7 +167,9 @@ const Home = () => {
       <ModalComponent
         isOpen={isOpen}
         onClose={onClose}
-        overlay={<Overlay />}
+        overlay={
+          <ModalOverlay bg="blackAlpha.300" backdropFilter={"blur(10px)"} />
+        }
         title={selected.title}
       >
         <Box>

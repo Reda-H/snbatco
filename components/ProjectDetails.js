@@ -21,11 +21,15 @@ import {
   Divider,
   Icon,
   Image,
+  useDisclosure,
+  ModalOverlay,
 } from "@chakra-ui/react";
 import NextImage from "next/image";
+import { useState } from "react";
 import { BiCalendar } from "react-icons/bi";
 import { BsCheck2Circle } from "react-icons/bs";
 import { FiDollarSign } from "react-icons/fi";
+import ModalComponent from "./ModalComponent";
 
 let photoData = [
   {
@@ -64,6 +68,14 @@ let photoData = [
 ];
 
 const ProjectDetails = ({ project }) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  let [selected, setSelected] = useState("");
+
+  const handlePictureModal = (url) => {
+    onOpen();
+    setSelected(url);
+  };
+
   return (
     <Container maxW={"6xl"}>
       <Grid templateRows={"repeat(1, 1fr)"} templateColumns={"repeat(5, 1fr)"}>
@@ -72,9 +84,7 @@ const ProjectDetails = ({ project }) => {
             <Image
               rounded={"md"}
               alt={"product image"}
-              src={
-                "https://images.unsplash.com/photo-1596516109370-29001ec8ec36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyODE1MDl8MHwxfGFsbHx8fHx8fHx8fDE2Mzg5MzY2MzE&ixlib=rb-1.2.1&q=80&w=1080"
-              }
+              src={project.image}
               fit={"cover"}
               align={"center"}
               height={"100%"}
@@ -122,7 +132,7 @@ const ProjectDetails = ({ project }) => {
                     <Box>
                       <Flex direction={"row"} lineHeight={1}>
                         <FiDollarSign />
-                        <Text fontSize={"2xl"}>250682000</Text>
+                        <Text fontSize={"2xl"}>250.682.000,00</Text>
                       </Flex>
                     </Box>
                   </Center>
@@ -178,20 +188,42 @@ const ProjectDetails = ({ project }) => {
           </Stack>
         </GridItem>
       </Grid>
-      <Box>
-        <SimpleGrid columns={4}>
+      <Box marginTop={["0", "4"]}>
+        <SimpleGrid columns={[1, 4]}>
           {photoData.map((photo) => (
-            <Box key={photo.url} w={"100%"} p={"10px"}>
-              <NextImage
+            <Box
+              key={photo.url}
+              w={"100%"}
+              h={"210px"}
+              p={"10px"}
+              onClick={() => handlePictureModal(photo.url)}
+              cursor={"pointer"}
+            >
+              <Image
                 src={`${photo.url}`}
                 width={"100%"}
                 height={"100%"}
-                layout={"responsive"}
+                fit={"cover"}
+                alt={"picture from gallery of project"}
+                transition={"transform .4s"}
+                _hover={{ transform: "scale(1.2)", transformOrigin: "50% 50%" }}
               />
             </Box>
           ))}
         </SimpleGrid>
       </Box>
+      <ModalComponent
+        isOpen={isOpen}
+        onClose={onClose}
+        overlay={
+          <ModalOverlay bg="blackAlpha.300" backdropFilter={"grayscale(0.9)"} />
+        }
+        background={"black"}
+      >
+        <Center>
+          <Image src={selected} height={"75vh"} />
+        </Center>
+      </ModalComponent>
     </Container>
   );
 };
