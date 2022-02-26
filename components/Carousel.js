@@ -137,7 +137,7 @@ export default function CaptionCarousel() {
                 <Heading
                   fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
                   color={"Black"}
-                  opacity={1}
+                  // opacity={1}
                 >
                   {card.title}
                 </Heading>

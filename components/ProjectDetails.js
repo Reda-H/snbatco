@@ -216,12 +216,16 @@ const ProjectDetails = ({ project }) => {
         isOpen={isOpen}
         onClose={onClose}
         overlay={
-          <ModalOverlay bg="blackAlpha.300" backdropFilter={"grayscale(0.9)"} />
+          <ModalOverlay bg="blackAlpha.300" backdropFilter={"grayscale(1)"} />
         }
         background={"black"}
       >
         <Center>
-          <Image src={selected} height={"75vh"} />
+          <Image
+            src={selected}
+            height={["100%", "75vh"]}
+            marginY={["auto", "0"]}
+          />
         </Center>
       </ModalComponent>
     </Container>

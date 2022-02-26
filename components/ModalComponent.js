@@ -28,10 +28,9 @@ const ModalComponent = ({
     >
       {overlay}
       <ModalContent
-        height={"95vh"}
+        height={title ? "95vh" : null}
         w={title ? null : "90vw"}
         display={title ? "flex" : "inline-block"}
-        className="aaa"
         // background={`${background ? background : "white"}`}
       >
         <ModalHeader>{title ? title : null}</ModalHeader>
