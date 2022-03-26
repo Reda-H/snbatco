@@ -238,26 +238,11 @@ const NAV_ITEMS = [
     href: "/",
   },
   {
-    label: "A Propos",
-    children: [
-      {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
-        href: "/about",
-      },
-      {
-        label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
-        href: "/about",
-      },
-    ],
+    label: "Qui Sommes Nous ?",
+    href: "/about",
   },
   {
-    label: "L'Equipe",
+    label: "La Team",
     href: "/team",
-  },
-  {
-    label: "Contacts",
-    href: "/contact",
   },
 ];

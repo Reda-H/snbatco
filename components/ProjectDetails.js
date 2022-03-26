@@ -29,6 +29,7 @@ import { useState } from "react";
 import { BiCalendar } from "react-icons/bi";
 import { BsCheck2Circle } from "react-icons/bs";
 import { FiDollarSign } from "react-icons/fi";
+import { MdArchitecture, MdPerson, MdVerified } from "react-icons/md";
 import ModalComponent from "./ModalComponent";
 
 let photoData = [
@@ -93,16 +94,37 @@ const ProjectDetails = ({ project }) => {
           </Flex>
         </GridItem>
         <GridItem colSpan={[5, 3]}>
-          <Stack spacing={1}>
+          <Stack spacing={1}
+            height={"100%"}
+            justifyContent={"center"}>
             <Box as={"header"} px={[0, 6]}>
               <Heading fontSize={"2xl"}>{project.title}</Heading>
               <Stack
                 direction={["column", "row"]}
                 borderBottom={"1px solid gray"}
               >
-                <Text>Ea Lorem non amet eiusmod commodo anim.</Text>
-                <Text>Ea Lorem non</Text>
-                <Text>2006</Text>
+                <HStack>
+                  <MdPerson />
+                  {/* eslint-disable-next-line react/no-unescaped-entities */}
+                  <Text>M. d'ouvrage:</Text>
+                  <Text fontWeight={"bold"}>Amine Skalli</Text>
+                  </HStack>
+
+                <HStack>
+                  <MdArchitecture />
+                  <Text>Architecte:</Text>
+                  <Text fontWeight={"bold"}>Nezha Bouzoubaa</Text>
+                </HStack>
+              </Stack>
+              <Stack
+                direction={["column", "row"]}
+                borderBottom={"1px solid gray"}
+              >
+                <HStack>
+                  <MdVerified />
+                  <Text>Bureau de Controle:</Text>
+                  <Text fontWeight={"bold"}>NORISKO</Text>
+                </HStack>
               </Stack>
             </Box>
             <Box px={[0, 6]} py={[0, 5]}>
@@ -116,11 +138,11 @@ const ProjectDetails = ({ project }) => {
               </Text>
               <Grid
                 my={5}
-                templateRows={["repeat(3, 1fr)", "repeat(1, 1fr)"]}
-                templateColumns={"repeat(3, 1fr)"}
+                templateRows={["repeat(2, 1fr)", "repeat(1, 1fr)"]}
+                templateColumns={["repeat(1, 1fr)", "repeat(2, 1fr)"]}
               >
                 <GridItem
-                  colSpan={[3, 1]}
+                  colSpan={[1, 1]}
                   borderRight={["none", "1px solid black"]}
                 >
                   <Center
@@ -137,7 +159,7 @@ const ProjectDetails = ({ project }) => {
                     </Box>
                   </Center>
                 </GridItem>
-                <GridItem
+                {/* <GridItem
                   colSpan={[3, 1]}
                   borderRight={["none", "1px solid black"]}
                 >
@@ -151,7 +173,7 @@ const ProjectDetails = ({ project }) => {
                       <HStack>
                         <Flex direction={"row"} lineHeight={1}>
                           <BsCheck2Circle color="green" />
-                          <Text fontSize={"2xl"}>LEED</Text>
+                          <Text fontSize={"2xl"}>AS</Text>
                         </Flex>
 
                         <Flex direction={"row"} lineHeight={1}>
@@ -161,8 +183,8 @@ const ProjectDetails = ({ project }) => {
                       </HStack>
                     </Box>
                   </Center>
-                </GridItem>
-                <GridItem colSpan={[3, 1]}>
+                </GridItem> */}
+                <GridItem colSpan={[1, 1]}>
                   <Center
                     justifyContent={["center"]}
                     paddingY={["2", "0"]}

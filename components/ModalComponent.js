@@ -31,6 +31,7 @@ const ModalComponent = ({
         height={title ? "95vh" : null}
         w={title ? null : "90vw"}
         display={title ? "flex" : "inline-block"}
+        overflow={title ? null : "scroll"}
         // background={`${background ? background : "white"}`}
       >
         <ModalHeader>{title ? title : null}</ModalHeader>
