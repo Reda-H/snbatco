@@ -42,20 +42,20 @@ export default function CaptionCarousel() {
   // This can be static or loaded from a server
   const cards = [
     {
-      title: "Lorem Ipsum Dolor",
-      text: "Ea commodo cillum minim incididunt consectetur eiusmod tempor tempor Lorem ea nisi pariatur in.",
+      title: "SNBAT",
+      text: "Société d’ingénierie du bâtiment, nous réunissons toutes les compétences nécessaires à la réussite de projets de réhabilitation, de rénovation et de construction nouvelles.",
       image:
         "https://images.unsplash.com/photo-1611906622516-be9a76360430?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     },
     {
-      title: "Lorem Ipsum Dolor",
-      text: "Ea commodo cillum minim incididunt consectetur eiusmod tempor tempor Lorem ea nisi pariatur in.",
+      title: "Valeur ajoutée à nos clients",
+      text: "Réactivité par rapport à l’établissement des études dans le respect des délais, coûts ( optimisation) et qualité du rendu.",
       image:
         "https://images.unsplash.com/photo-1611906629726-30d2755a0945?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     },
     {
-      title: "Lorem Ipsum Dolor",
-      text: "Ea commodo cillum minim incididunt consectetur eiusmod tempor tempor Lorem ea nisi pariatur in.",
+      title: "Valeur ajoutée à nos clients",
+      text: "Standardisation du concept architectural pour une optimisation de l’ingénierie des projets et ce, en concertation avec le Maitre d’Ouvrage.",
       image:
         "https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1179&q=80",
     },
@@ -124,19 +124,21 @@ export default function CaptionCarousel() {
             <Container size="container.lg" height="600px" position="relative">
               <Stack
                 spacing={6}
-                w={"full"}
+                w={"2xl"}
                 maxW={"xl"}
                 padding={10}
                 rounded={5}
                 position="absolute"
                 top="50%"
                 transform="translate(0, -50%)"
-                background={"rgb(255, 255, 255, 0.4)"}
+                background={"rgb(255, 255, 255, 0.8)"}
                 // opacity={0.2}
               >
                 <Heading
-                  fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
+                  fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
                   color={"Black"}
+                  textAlign={"center"}
+                  borderBottom={"1px solid gray"}
                   // opacity={1}
                 >
                   {card.title}

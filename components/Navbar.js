@@ -61,7 +61,7 @@ export default function Navbar() {
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
           >
-            SNBAT
+            SNBAT<Heading size={"xs"}>Société Nouvelle de Bâtiment </Heading>
           </Heading>
         </Flex>
 
