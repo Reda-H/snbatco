@@ -6,11 +6,12 @@ import {
   Heading,
   Text,
   Center,
+  Divider,
 } from "@chakra-ui/react";
 
 function MemberCard({ employee }) {
   return (
-    <Flex p={50} w="full" alignItems="center" justifyContent="center">
+    <Flex p={5} w="full" alignItems="center" justifyContent="center">
       <Box
         bg={useColorModeValue("white", "gray.800")}
         maxW="sm"
@@ -20,7 +21,7 @@ function MemberCard({ employee }) {
         position="relative"
       >
         <Image
-          src={"/randomuser.jpg"}
+          src={employee.image}
           alt={`Picture of ${employee.name}`}
           roundedTop="lg"
         />
@@ -38,6 +39,14 @@ function MemberCard({ employee }) {
               px={3}
             >
               {employee.role}
+            </Text>
+            <Divider my={2} />
+            <Text
+              textAlign={"center"}
+              color={useColorModeValue("gray.700", "gray.400")}
+              px={3}
+            >
+              {employee.departement}
             </Text>
 
             {/* <Stack align={"center"} justify={"center"} direction={"row"} mt={6}>

@@ -94,9 +94,7 @@ const ProjectDetails = ({ project }) => {
           </Flex>
         </GridItem>
         <GridItem colSpan={[5, 3]}>
-          <Stack spacing={1}
-            height={"100%"}
-            justifyContent={"center"}>
+          <Stack spacing={1} height={"100%"} justifyContent={"center"}>
             <Box as={"header"} px={[0, 6]}>
               <Heading fontSize={"2xl"}>{project.title}</Heading>
               <Stack
@@ -108,8 +106,12 @@ const ProjectDetails = ({ project }) => {
                   {/* eslint-disable-next-line react/no-unescaped-entities */}
                   <Text>M. d'ouvrage:</Text>
                   <Text fontWeight={"bold"}>Amine Skalli</Text>
-                  </HStack>
-
+                </HStack>
+              </Stack>
+              <Stack
+                direction={["column", "row"]}
+                borderBottom={"1px solid gray"}
+              >
                 <HStack>
                   <MdArchitecture />
                   <Text>Architecte:</Text>
